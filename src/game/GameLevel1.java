@@ -143,19 +143,15 @@ public class GameLevel1 extends AbstractGameClass {
                
                if (game.getLevel1time() <= 0){
                    
-                   try {
-                       game.setLevel1time(game.getLevel1time()-1);
-                       Thread.sleep(500);
-                       GameLevel1.this.stop();
-                       game.getMusic().stop();
-                       JOptionPane.showMessageDialog(null, "Time is over ","Game Over.",JOptionPane.OK_OPTION);
-                       game.getFrame().dispose();
-                       Screen screen = new Screen();
-                       screen.setVisible(true);
-                       gameOver = true;
-                   } catch (InterruptedException ex) {
-                       Logger.getLogger(GameLevel1.class.getName()).log(Level.SEVERE, null, ex);
-                   }
+                   game.setLevel1time(game.getLevel1time()-1);
+                   
+                   GameLevel1.this.stop();
+                   game.getMusic().stop();
+                   JOptionPane.showMessageDialog(null, "Time is over ","Game Over.",JOptionPane.OK_OPTION);
+                   game.getFrame().dispose();
+                   Screen screen = new Screen();
+                   screen.setVisible(true);
+                   gameOver = true;
                    
     }
         

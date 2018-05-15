@@ -37,11 +37,11 @@ public class MonsterController {
                }
                
                if (System.currentTimeMillis()%4 == 2){
-                   JUMPING_SPEED = JUMPING_SPEED *-2;
+                   JUMPING_SPEED = JUMPING_SPEED *-1.5f;
                }
                
                if (System.currentTimeMillis()%4 == 3){
-                   JUMPING_SPEED = JUMPING_SPEED *-0.5f;
+                   JUMPING_SPEED = JUMPING_SPEED *-0.75f;
                }
                 float speed = (float) Math.random()*JUMPING_SPEED;
             monster.startWalking(speed);
