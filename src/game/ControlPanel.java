@@ -8,6 +8,7 @@ public class ControlPanel extends javax.swing.JPanel {
     private final Game game;
     private final CoolAlien coolalien;
     
+    
     public ControlPanel(Game game) {
         initComponents();
         this.game = game;
@@ -84,8 +85,12 @@ public class ControlPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>                        
 
-    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-       System.exit(0);
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+       game.getMusic().stop();
+       game.getWorld().stop();
+       game.getFrame().dispose();
+       Screen screen = new Screen();
+       screen.setVisible(true);
     }                                          
 
     private void pauseButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            

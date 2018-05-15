@@ -116,6 +116,74 @@ public class Game{
         absGameClass.start();
     }
 
+    
+    public Game(boolean sound){
+             
+        absGameClass = new GameLevel1();
+        absGameClass.populate(this);
+        levelNumber = 1;
+        life = 3;
+        view = new UserView(absGameClass, 1000, 500);
+        view = new MyGameBackground(absGameClass, 1000, 500, this);
+        panel = new ControlPanel(this);
+        coolAlien = absGameClass.getAlien();
+//        score = new GameView(this);
+
+        // uncomment this to draw a 1-metre grid over the view
+        //view.setGridResolution(1);
+
+        // display the view in a frame (quit the application when the game window is closed)
+        frame = new JFrame("Encapsulation Demo");
+        controller = new Controller(absGameClass.getAlien());  
+        frame.addKeyListener(controller);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationByPlatform(true);
+        frame.add(view);    
+        frame.add(panel, BorderLayout.NORTH);
+        UserView wideView = new UserView(absGameClass, 500, 100);
+        wideView.setZoom(4);
+        frame.add(wideView, BorderLayout.SOUTH);
+        
+        // don't let the game window be resized:
+        frame.setResizable(false);
+        
+        // size the game window to fit the world view:
+        frame.pack();
+        
+        // make the window visible:
+        frame.setVisible(true);
+
+        // uncomment this to make a debugging view
+        //JFrame debugView = new DebugViewer(world, 500, 500);
+        
+        // give keyboard focus to the frame whenever the mouse enters the view
+        view.addMouseListener(new Focus(frame));
+        
+        frame.addKeyListener(new Controller(absGameClass.getAlien()));
+        if (sound = true){
+             try {
+            music = new Music("data/song.wav");
+            music.loop();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            
+        }
+        
+       
+        //uncomment this to make the view track the soldier non-functional:
+        absGameClass.addStepListener(new Tracker(view, absGameClass.getAlien()));
+
+        // start!
+        absGameClass.start();
+    }
+
+    
+    
+    
+    
+    
     public CoolAlien getCoolAlien() {       
         return absGameClass.getAlien();
     }

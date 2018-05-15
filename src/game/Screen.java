@@ -5,16 +5,31 @@
  */
 package game;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Negar
  */
-public class Screen extends javax.swing.JFrame {
 
+public class Screen extends javax.swing.JFrame {
+boolean sound = true;
+
+    public boolean isSound() {
+        return sound;
+    }
+
+    public void setSound(boolean sound) {
+        this.sound = sound;
+    }
+    
+    
     /**
      * Creates new form Screen
      */
     public Screen() {
+        setContentPane(new JLabel(new ImageIcon("data/star.png")));
         initComponents();
     }
 
@@ -44,37 +59,47 @@ public class Screen extends javax.swing.JFrame {
         });
 
         Mute.setText("Mute");
+        Mute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MuteActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton1))
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(Mute)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Mute)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 207, Short.MAX_VALUE)
+                .addContainerGap(188, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(123, 123, 123))
+                .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jButton1)
-                .addGap(25, 25, 25)
-                .addComponent(Mute)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(Mute)
+                .addGap(95, 95, 95))
         );
 
         pack();
@@ -82,7 +107,33 @@ public class Screen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+      if (sound = false){
+            Game game = new Game(sound);
+      }
+      else {
+            Game game = new Game();
+          
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void MuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuteActionPerformed
+        // TODO add your handling code here:
+        if (sound = true){
+            Mute.setText("Unmute");
+            sound = false;
+            
+        }
+                if (sound = false){
+            Mute.setText("Mute");
+            sound = true;
+            
+        }
+    }//GEN-LAST:event_MuteActionPerformed
 
     /**
      * @param args the command line arguments
