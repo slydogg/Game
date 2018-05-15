@@ -160,7 +160,7 @@ public class Game{
         view.addMouseListener(new Focus(frame));
         
         frame.addKeyListener(new Controller(absGameClass.getAlien()));
-        if (sound = true){
+        if (sound ){
              try {
             music = new Music("data/song.wav");
             music.loop();

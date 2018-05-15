@@ -59,6 +59,11 @@ boolean sound = true;
         });
 
         Mute.setText("Mute");
+        Mute.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MuteMouseClicked(evt);
+            }
+        });
         Mute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MuteActionPerformed(evt);
@@ -79,12 +84,9 @@ boolean sound = true;
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Mute)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jButton1)
+                    .addComponent(Mute))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(188, Short.MAX_VALUE)
                 .addComponent(jButton4)
@@ -108,12 +110,11 @@ boolean sound = true;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-      if (sound = false){
+      if (!sound ){
             Game game = new Game(sound);
       }
       else {
             Game game = new Game();
-          
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -123,17 +124,22 @@ boolean sound = true;
 
     private void MuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuteActionPerformed
         // TODO add your handling code here:
-        if (sound = true){
+        
+    }//GEN-LAST:event_MuteActionPerformed
+
+    private void MuteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MuteMouseClicked
+        // TODO add your handling code here:
+        if (sound){
             Mute.setText("Unmute");
             sound = false;
             
         }
-                if (sound = false){
+        else {
             Mute.setText("Mute");
             sound = true;
             
         }
-    }//GEN-LAST:event_MuteActionPerformed
+    }//GEN-LAST:event_MuteMouseClicked
 
     /**
      * @param args the command line arguments
