@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import org.jbox2d.common.Vec2;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
@@ -139,14 +140,22 @@ public class GameLevel1 extends AbstractGameClass {
             public void actionPerformed(ActionEvent evt) {
              if (game.getNumberOfLevel()== 1 && gameOver == false){
                game.setLevel1time(game.getLevel1time()-1);
+               
                if (game.getLevel1time() <= 0){
-                   GameLevel1.this.stop();
-                   game.getMusic().stop();
-                   JOptionPane.showMessageDialog(null, "Time is over ","Game Over.",JOptionPane.OK_OPTION);
-                   game.getFrame().dispose();
-                   Screen screen = new Screen();
-                   screen.setVisible(true);
-                   gameOver = true;
+                   
+                   try {
+                       game.setLevel1time(game.getLevel1time()-1);
+                       Thread.sleep(500);
+                       GameLevel1.this.stop();
+                       game.getMusic().stop();
+                       JOptionPane.showMessageDialog(null, "Time is over ","Game Over.",JOptionPane.OK_OPTION);
+                       game.getFrame().dispose();
+                       Screen screen = new Screen();
+                       screen.setVisible(true);
+                       gameOver = true;
+                   } catch (InterruptedException ex) {
+                       Logger.getLogger(GameLevel1.class.getName()).log(Level.SEVERE, null, ex);
+                   }
                    
     }
         
@@ -162,7 +171,7 @@ public class GameLevel1 extends AbstractGameClass {
             }
         };
     
-        Timer timer = new Timer(1000, taskPerformer);
+        Timer timer = new Timer(1500, taskPerformer);
         timer.start();
                        
   

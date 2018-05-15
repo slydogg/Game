@@ -141,6 +141,7 @@ public class GameLevel3 extends AbstractGameClass {
              if (game.getNumberOfLevel()== 3 && gameOver == false){
                game.setLevel3time(game.getLevel3time()-1);
                if (game.getLevel3time() <= 0){
+                   game.setLevel3time(game.getLevel3time()-1);
                    GameLevel3.this.stop();
                    game.getMusic().stop();
                    JOptionPane.showMessageDialog(null, "Time is over ","Game Over.",JOptionPane.OK_OPTION);
