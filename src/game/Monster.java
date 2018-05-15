@@ -25,6 +25,7 @@ public class Monster extends Walker{
         super(world, monsterShape);        
         addImage(monsterImage); 
         this.setGravityScale(0);
+        
         monsterC = new MonsterController(this);
     }
     

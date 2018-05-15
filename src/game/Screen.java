@@ -51,6 +51,7 @@ boolean sound = true;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 153));
         jButton1.setText("New Game");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +59,7 @@ boolean sound = true;
             }
         });
 
+        Mute.setBackground(new java.awt.Color(204, 204, 0));
         Mute.setText("Mute");
         Mute.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -70,7 +72,8 @@ boolean sound = true;
             }
         });
 
-        jButton4.setText("jButton4");
+        jButton4.setBackground(new java.awt.Color(0, 153, 255));
+        jButton4.setText("Quit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -88,7 +91,7 @@ boolean sound = true;
                     .addComponent(Mute))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(142, 142, 142))
         );
@@ -120,6 +123,7 @@ boolean sound = true;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void MuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuteActionPerformed

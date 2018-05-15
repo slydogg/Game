@@ -51,36 +51,41 @@ public class MyGameBackground extends UserView {
     @Override
     protected void paintBackground(Graphics2D g) {
         
-        int mins = 0;
-        String minutes = null;
-        int secs = 0;
-        String seconds = null;
+        int minutes = 0;
+        String minutesText = null;
+        int seconds = 0;
+        String secondText = null;
         
         
         
         switch (game.getNumberOfLevel()) {
             case 1:
                 g.drawImage(background2, 0, 0, this);
-                mins = game.getLevel1time()/60;
-         minutes = String.valueOf(mins);
-         secs = game.getLevel1time() % 60;
-        seconds = String.valueOf(secs);
+                minutes = game.getLevel1time()/60;
+         minutesText = String.valueOf(minutes);
+         seconds = game.getLevel1time() % 60;
+        secondText = String.valueOf(seconds);
         
                 break;
             case 2:
                 g.drawImage(background4, 0, 0, this);
-                         mins = game.getLevel2time()/60;
-         minutes = String.valueOf(mins);
-         secs = game.getLevel2time() % 60;
-        seconds = String.valueOf(secs);
+                         minutes = game.getLevel2time()/60;
+         minutesText = String.valueOf(minutes);
+         seconds = game.getLevel2time() % 60;
+        secondText = String.valueOf(seconds);
                 break;
+                
+                
             case 3:
                 g.drawImage(background2, 0, 0, this);
-                         mins = game.getLevel3time()/60;
-         minutes = String.valueOf(mins);
-         secs = game.getLevel3time() % 60;
-        seconds = String.valueOf(secs);
+                         minutes = game.getLevel3time()/60;
+         minutesText = String.valueOf(minutes);
+         seconds = game.getLevel3time() % 60;
+        secondText = String.valueOf(seconds);
                 break;
+                
+                
+                
             case 4: 
                 g.drawImage(background4, 0, 0, this);
                 break;
@@ -97,24 +102,24 @@ public class MyGameBackground extends UserView {
         g.drawString("Life left : "+(game.getLife()), 150, 80);
         g.drawImage(timerImage, 785, 20, 100, 100, this);
 
-            if (secs < 10) {
+            if (seconds < 10) {
 
-                g.drawString(minutes + ": " + "0" + seconds, 815, 77);
-
-            }
-
-            if (secs >= 10) {
-                g.drawString(minutes + ": " + seconds, 815, 77);
+                g.drawString(minutesText + ": " + "0" + secondText, 815, 77);
 
             }
 
-            if (mins == 0 && secs <= 30) {
+            if (seconds >= 10) {
+                g.drawString(minutesText + ": " + secondText, 815, 77);
+
+            }
+
+            if (minutes == 0 && seconds <= 30) {
                 g.setColor(Color.red);
 
-                if (secs < 10) {
-                    g.drawString(minutes + ": " + "0" + seconds, 815, 77);
+                if (seconds < 10) {
+                    g.drawString(minutesText + ": " + "0" + secondText, 815, 77);
                 } else {
-                    g.drawString(minutes + ": " + seconds, 815, 77);
+                    g.drawString(minutesText + ": " + secondText, 815, 77);
                 }
             }
         

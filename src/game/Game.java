@@ -103,8 +103,10 @@ public class Game{
         frame.addKeyListener(new Controller(absGameClass.getAlien()));
         
         try {
-            music = new Music("data/song.wav");
+            music = new Music("data/song.wav");     
+            music.setVolume(0.5f);
             music.loop();
+            
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -163,6 +165,7 @@ public class Game{
         if (sound ){
              try {
             music = new Music("data/song.wav");
+             music.setVolume(0.5f);
             music.loop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
