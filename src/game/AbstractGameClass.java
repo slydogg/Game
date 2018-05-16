@@ -5,7 +5,7 @@ import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 /**
  * Abstract game class extends World.
- * @author Negar
+ * @author Negar 
  */
 public abstract class AbstractGameClass extends World{
     
